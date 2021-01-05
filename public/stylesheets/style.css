@@ -1,0 +1,32 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+}
+
+#square {
+  margin-top: 2%;
+  margin-left: 15%;
+  height: 800px;
+  width: 1200px;
+  background-color: rgb(20, 20, 20);
+}
+
+body{
+  background-color: rgb(27, 27, 27);
+}
+.photo{
+  position: absolute;
+  height: 250px;
+  width: 200px;
+  transition: 1s;
+  margin-top: -785px;
+  margin-left: 15%;
+}
+.photo:hover{
+  display: block;
+  height: 400px;
+  width: 350px;
+  margin-right: 20%;
+  
+}

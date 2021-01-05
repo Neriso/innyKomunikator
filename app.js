@@ -7,7 +7,21 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
 
-var app = express();
+const app = express();
+
+const port = 3000;
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)})
+
+
+app.get('/', (req, res, next) => {
+	res.render('index');
+});
+
+app.get('/user', (req, res) => {
+	res.render('user');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -39,4 +53,21 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+
+
+
+
+//app.set('views', './views');
+//app.set('view engine', 'pug');
+
+
+
+// app.get('*', (req, res, next) => {
+// 	res.status(200).send('Sorry, page not found');
+// 	next();
+// });
+
+
+
+
+//module.exports = app;
