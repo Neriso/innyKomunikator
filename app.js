@@ -6,21 +6,24 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/user');
+var usersRouter = require('./routes/fadeScreen');
 
 const app = express();
 
-const port = 3000;
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)})
-
-
+//homepage edpoint
 app.get('/', (req, res, next) => {
 	res.render('index');
 });
 
+//userPage edpoint
 app.get('/user', (req, res) => {
 	res.render('user');
+});
+
+//FadeScreen(testing)
+app.get('/fadeScreen', (req, res) => {
+	res.render('fadeScreen');
 });
 
 // view engine setup
@@ -35,7 +38,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //app.use('/', indexRouter);
 app.use('./routes/user', usersRouter);
-app.use('/index',indexRouter )
+app.use('./index', indexRouter);
+app.use('./fadeScreen', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,19 +59,4 @@ app.use(function(err, req, res, next) {
 
 
 
-
-
-//app.set('views', './views');
-//app.set('view engine', 'pug');
-
-
-
-// app.get('*', (req, res, next) => {
-// 	res.status(200).send('Sorry, page not found');
-// 	next();
-// });
-
-
-
-
-//module.exports = app;
+module.exports = app;
